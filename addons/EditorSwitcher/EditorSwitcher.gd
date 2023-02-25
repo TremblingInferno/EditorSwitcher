@@ -8,7 +8,6 @@ var SwitchEditorButton = preload("EditorButton.gd")
 func _enter_tree():
 	var editor_node = get_tree().get_root().get_child(0)
 	var gui_base = editor_node.get_gui_base()
-	var icon = preload("icon.png")
 	var icon_activated = gui_base.get_icon("ScriptCreateDialog", "EditorIcons") #ToolConnect
 	var icon_unactivated = gui_base.get_icon("ScriptExtend", "EditorIcons")
 	
@@ -18,10 +17,8 @@ func _enter_tree():
 func _switch_pressed(is_activated:bool):
 	if is_activated:
 		get_editor_interface().get_editor_settings().set_setting("text_editor/external/use_external_editor", true)
-		print("hello")
 	else:
 		get_editor_interface().get_editor_settings().set_setting("text_editor/external/use_external_editor", false)
-		print("woah")
 	get_editor_interface().edit_script(
 		get_editor_interface().get_script_editor().get_current_script())
 	
